@@ -1,0 +1,11 @@
+service: express-lambda
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-northeast-1
+functions:
+  app:
+    handler: src/index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
